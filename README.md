@@ -122,6 +122,14 @@ The data architecture for this project follows the Medallion Architecture **Bron
     - `load_bronze` → Stored procedure for loading data into the Bronze layer.
     - `load_silver` → Stored procedure for loading data into the Silver layer.
 
+## Tools:
+
+- **[SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads):**
+- **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16):** 
+- **[DrawIO](https://www.drawio.com/):**
+
+---
+
 ## About Me
 
 Hi! I am **Xavier**, an aspiring data engineer. I have a background in Storage and Backup supporting over 400 Virtual Machines and Databases. 
