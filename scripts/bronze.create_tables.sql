@@ -82,17 +82,17 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'bronze.erp_loca101' AND schema_id = SCHEMA_ID('bronze'))
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'bronze.erp_loc_a101' AND schema_id = SCHEMA_ID('bronze'))
 BEGIN
-	CREATE TABLE bronze.erp_loca101 (
+	CREATE TABLE bronze.erp_loc_a101 (
 		cid INT,
 		cntry NVARCHAR(50),
 	);
-	PRINT 'Table bronze.erp_loca101 has been created successfully';
+	PRINT 'Table bronze.erp_loc_a101 has been created successfully';
 END
 ELSE
 BEGIN
-	PRINT 'Table bronze.erp_loca101 already exists';
+	PRINT 'Table bronze.erp_loc_a101 already exists';
 END
 GO
 
