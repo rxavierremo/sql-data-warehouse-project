@@ -3,11 +3,11 @@
 Script Name  : init_database.sql
 
 Description  : Creates database named 'DataWarehouse'
-               after checking if it does not exists. 
+               after checking if it does not exist. 
 
                Creates the schemas for the data warehouse
                (bronze, silver, gold) after checking if it
-               does not exists.
+               does not exist.
 ============================================================
 */
 
