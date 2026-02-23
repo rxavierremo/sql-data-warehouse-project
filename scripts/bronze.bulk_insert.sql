@@ -1,4 +1,11 @@
+/*
+============================================================
+Script Name  : bronze.bulk_insert.sql
 
+Description  : Inserts the data from the CSV file to the 
+			   tables.
+============================================================
+*/
 
 
 --Truncate tables before using bulk insert. This will avoid duplicating the data.
@@ -75,7 +82,7 @@ BEGIN TRY
 	WITH (
 		FIELDTERMINATOR = ',',
 		FIRSTROW = 2,
-		ROWTERMINATOR = '\r\n',
+		ROWTERMINATOR = '\n',
 		TABLOCK
 	);
 END TRY
@@ -94,7 +101,7 @@ BEGIN TRY
 	WITH (
 		FIELDTERMINATOR = ',',
 		FIRSTROW = 2,
-		ROWTERMINATOR = '\r\n',
+		ROWTERMINATOR = '\n',
 		TABLOCK
 	);
 END TRY
@@ -122,4 +129,3 @@ BEGIN CATCH
 	PRINT ERROR_MESSAGE();
 END CATCH
 GO
-
