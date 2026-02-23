@@ -70,7 +70,7 @@ GO
 IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'bronze.erp_cust_az12' AND schema_id = SCHEMA_ID('bronze'))
 BEGIN
 	CREATE TABLE bronze.erp_cust_az12 (
-		cid INT,
+		cid NVARCHAR,
 		bdate DATE,
 		gen NVARCHAR(15),
 	);
@@ -85,7 +85,7 @@ GO
 IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'bronze.erp_loc_a101' AND schema_id = SCHEMA_ID('bronze'))
 BEGIN
 	CREATE TABLE bronze.erp_loc_a101 (
-		cid INT,
+		cid NVARCHAR(50),
 		cntry NVARCHAR(50),
 	);
 	PRINT 'Table bronze.erp_loc_a101 has been created successfully';
@@ -111,4 +111,3 @@ BEGIN
 	PRINT 'Table bronze.erp_px_cat_g1v2 already exists';
 END
 GO
-
