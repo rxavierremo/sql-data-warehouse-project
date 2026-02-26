@@ -1,10 +1,9 @@
 /*
 ============================================================
-Script Name  : silver.create_tables.sql
+Script Name  : silver.silver_load.sql
 
-Description  : Create tables for 
-			         silver layer after checking if it does not 
-			         exist. 
+Description  : Create tables for silver layer after checking
+               if it does not exist. 
 ============================================================
 */
 
