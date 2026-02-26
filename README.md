@@ -332,6 +332,7 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Docs | Architecture Diagram | ✅ Complete |
 | Docs | Integration Diagram | ✅ Complete |
 | Docs | Data Catalog | ✅ Complete |
+| Docs | Dashboarding/Analytics | ⏳ Planned |
 
 ---
 ## Credits and Acknowledgements
