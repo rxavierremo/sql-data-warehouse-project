@@ -34,7 +34,7 @@ These insights empower stakeholders with key business metrics, enabling strategi
 ---
 ## Data Architecture
 
-The data architecture for this project follows the Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
+The Data Architecture for this project follows the Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 
 ![Data Architecture](docs/data_architecture.png)
 
@@ -42,9 +42,19 @@ The data architecture for this project follows the Medallion Architecture **Bron
 2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
 3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
 
----
-# **Naming Conventions**
+## Data Flow Diagram
 
+The Data Flow Diagram illustrates how data moves from source systems through the Bronze, Silver, and Gold layers of the data warehouse.
+
+![Data Flow Diagram](docs/data_flow_diagram.png)
+
+## Integration Model
+
+The Integration Model shows the relationships between the two source systems.
+
+![Integration Model](docs/Integration_Model.png)
+
+---
 ## **Table of Contents**
 
 1. [General Principles](#general-principles)
@@ -129,7 +139,118 @@ The data architecture for this project follows the Medallion Architecture **Bron
 - **[DrawIO](https://www.drawio.com/):**
 
 ---
+## Project Structure
+```
+sql-data-warehouse-project/
+│
+├── datasets/                    # Source CSV files
+│   ├── source_erp/
+│   │   ├── CUST_AZ12.csv
+│   │   ├── LOC_A101.csv
+│   │   └── PX_CAT_G1V2.csv
+│   └── source_crm/
+│       ├── cust_info.csv
+│       ├── prd_info.csv
+│       └── sales_details.csv
+│
+├── docs/                        # Documentation and diagrams
+│   ├── diagrams/
+│   │   ├── integration_model.png
+│   │   ├── data_architecture.png
+│   │   ├── dwh_design.png
+│   │   └── data_flow_diagram.png
+│   └── data_catalog.md
+│
+├── scripts/                     # All SQL scripts
+│   ├── bronze/
+│   │   ├── bronze.load_bronze.sql
+│   │   └── bronze.create_tables.sql
+│   ├── silver/
+│   │   ├── silver.silver_load.sql
+│   │   └── --.sql
+│   └── gold/
+│       ├── --.sql
+│       └── --.sql
+│
+│
+├── tests/                       # Data quality test scripts
+│   └── --.sql
+│
+└── README.md
+```
+## Data Sources
 
+This project uses data from two source systems:
+
+**ERP System**
+- CUST_AZ12.csv — Customer demographics including customer ID, 
+  birth date, and gender
+- LOC_A101.csv — Customer location data including customer ID 
+  and country
+- PX_CAT_G1V2.csv — Product category information
+
+**CRM System**
+- cust_info.csv
+- prd_info.csv
+- sales_details.csv
+
+All source files are in CSV format with comma delimiters and are stored in the datasets/ folder.
+
+---
+## Data Catalog
+
+### Bronze Layer
+
+#### bronze.erp_cust_az12
+| Column | Data Type | Description | Example |
+|--------|-----------|-------------|---------|
+| cid | NVARCHAR(50) | Unique customer identifier from ERP system | NASAW00011000 |
+| bdate | DATE | Customer date of birth | 1971-10-06 |
+| gen | NVARCHAR(10) | Customer gender (raw, unstandardized) | Male, M, Female, F |
+
+#### bronze.erp_loc_a101
+| Column | Data Type | Description | Example |
+|--------|-----------|-------------|---------|
+| cid | NVARCHAR(50) | Unique customer identifier from ERP system | AW-00011000 |
+| cntry | NVARCHAR(50) | Customer country (raw, unstandardized) | US, Australia |
+
+### Silver Layer
+
+#### silver.customers
+| Column | Data Type | Description | Example |
+|--------|-----------|-------------|---------|
+| customer_id | NVARCHAR(50) | Standardized customer identifier | NASAW00011000 |
+| birth_date | DATE | Customer date of birth | 1971-10-06 |
+| gender | NVARCHAR(10) | Standardized gender value | M, F, Unknown |
+| country | NVARCHAR(50) | Standardized country name | Australia, US |
+| dwh_create_date | DATETIME2 | Record load timestamp | 2024-01-15 14:30:00 |
+
+---
+## Project Roadmap
+
+| Layer | Task | Status |
+|-------|------|--------|
+| Bronze | Create Database and Schemas | ✅ Complete |
+| Bronze | Create Tables | ✅ Complete |
+| Bronze | Bulk insert all source files | ✅ Complete |
+| Silver | Create Tables | ✅ Complete |
+| Silver | Data Standardization | 🔄 In Progress |
+| Silver | Deduplication | 🔄 In Progress |
+| Gold | Dimensional Modeling | ⏳ Planned |
+| Gold | Create Fact Tables | ⏳ Planned |
+| Gold | Create Dimension Tables | ⏳ Planned |
+| Docs | Architecture Diagram | ✅ Complete |
+| Docs | Integration Diagram | ✅ Complete |
+| Docs | Data Catalog | ⏳ Planned |
+
+---
+## Credits and Acknowledgements
+
+This project was built following the teachings and guidance of **Data With Baraa** as a hands-on learning exercise in Data Engineering.
+
+Original project concept and dataset: [[Link to original repo or course](https://github.com/DataWithBaraa/sql-data-warehouse-project)]
+
+---
 ## About Me
 
 Hi! I am **Xavier**, an aspiring data engineer. I have a background in Storage and Backup supporting over 400 Virtual Machines and Databases. 
