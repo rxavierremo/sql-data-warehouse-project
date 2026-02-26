@@ -286,13 +286,13 @@ All source files are in CSV format with comma delimiters and are stored in the d
 |--------|-----------|-------------|---------|
 | sls_ord_num | NVARCHAR(50) | Unique sales order number from CRM system | 11000 |
 | sls_prd_key | NVARCHAR(50) | Sales product key | NASAW00011000 |
-| sls_cust_id | INT | Sales customer id | Mountain Bike |
+| sls_cust_id | INT | Sales customer id | 11000 |
 | sls_order_id | INT | Sales order id | 1 |
-| sls_ship_dt | INT | Sales shipping date  | S, M |
+| sls_ship_dt | INT | Sales shipping date  | 20200101 |
 | sls_due_dt | INT | Sales due date | 20200101 |
 | sls_sales | INT | Sales information | 20200101 |
-| sls_quantity | INT | Sales quantity | 20200101 |
-| sls_price | INT | Sales price | 20200101 |
+| sls_quantity | INT | Sales quantity | 2 |
+| sls_price | INT | Sales price | 1 |
 
 #### silver.erp_cust_az12
 | Column | Data Type | Description | Example |
@@ -331,14 +331,14 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Gold | Create Dimension Tables | ⏳ Planned |
 | Docs | Architecture Diagram | ✅ Complete |
 | Docs | Integration Diagram | ✅ Complete |
-| Docs | Data Catalog | ⏳ Planned |
+| Docs | Data Catalog | ✅ Complete |
 
 ---
 ## Credits and Acknowledgements
 
 This project was built following the teachings and guidance of **Data With Baraa** as a hands-on learning exercise in Data Engineering.
 
-Original project concept and dataset: [[Link to original repo or course](https://github.com/DataWithBaraa/sql-data-warehouse-project)]
+Original project concept and dataset: [[Link to original repo](https://github.com/DataWithBaraa/sql-data-warehouse-project)]
 
 ---
 ## About Me
