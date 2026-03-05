@@ -1,6 +1,6 @@
 /*
 ============================================================
-Script Name  : silver.silver_load.sql
+Script Name  : silver.ddl_script.sql
 
 Description  : Create tables for silver layer after checking
                if it does not exist. 
