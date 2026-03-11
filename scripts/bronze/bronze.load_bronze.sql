@@ -1,6 +1,6 @@
 /*
 ============================================================
-Script Name  : bronze.bronze_load.sql
+Script Name  : bronze.load_bronze.sql
 
 Description  : Creates a stored procedure named 
                bronze.load_bronze and then
