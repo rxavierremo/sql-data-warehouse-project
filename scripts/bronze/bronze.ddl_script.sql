@@ -1,6 +1,6 @@
 /*
 ============================================================
-Script Name  : bronze.create_tables.sql
+Script Name  : bronze.ddl_script.sql
 
 Description  : Create tables named <sourcesystem_name> for 
 			         bronze layer after checking if it does not 
