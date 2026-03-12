@@ -80,7 +80,7 @@ The Data Architecture for this project follows the Medallion Architecture **Bron
 
 The Data Flow Diagram illustrates how data moves from source systems through the Bronze, Silver, and Gold layers of the data warehouse.
 
-![Data Flow Diagram](docs/data_flow_diagram.png)
+![Data Flow Diagram](docs/data_flow_diagram_.png)
 
 ## Integration Model
 
