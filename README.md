@@ -1,3 +1,35 @@
+## **Table of Contents**
+1. [About Me](#about-me)
+2. [Project Overview](#data-warehouse-and-analytics-project)
+3. [Project Requirements](#project-requirements)
+4. [Data Architecture](#data-architecture)
+5. [Data Flow Diagram](#data-flow-diagram)
+6. [Integration Model](#integration-model)
+7. [General Principles](#general-principles)
+8. [Table Naming Conventions](#table-naming-conventions)
+   - [Bronze Rules](#bronze-rules)
+   - [Silver Rules](#silver-rules)
+   - [Gold Rules](#gold-rules)
+9. [Column Naming Conventions](#column-naming-conventions)
+   - [Surrogate Keys](#surrogate-keys)
+   - [Technical Columns](#technical-columns)
+10. [Stored Procedure](#stored-procedure-naming-conventions)
+11. [Tools](#tools)
+12. [Project Structure](#project-structure)
+13. [Data Sources](#data-sources)
+14. [Data Catalog](#data-catalog)
+15. [Project Roadmap](#project-roadmap)
+---
+
+## About Me
+
+I am currently working as a Storage and Backup Administrator in Accenture and is transitioning into Data Engineering — my long term career aspiration. With a strong foundation as a backup administrator, handling backup infrastructure, ensuring data availability and reliability, I am now channeling that experience into building data pipelines and warehouse systems that transform raw data into business value.
+
+This project represents my hands-on journey into data engineering — built from scratch to demonstrate end-to-end data warehouse development using industry standard tools, architectures, and best practices.
+
+Open to Junior Data Engineering opportunities. Let's connect!
+LinkedIn: https://www.linkedin.com/in/rxavierremo
+
 # Data Warehouse and Analytics Project
 
 Welcome to the **Data Warehouse and Analytics Project** repository!
@@ -54,18 +86,6 @@ The Integration Model shows the relationships between the two source systems.
 
 ![Integration Model](docs/Integration_Model.png)
 
----
-## **Table of Contents**
-
-1. [General Principles](#general-principles)
-2. [Table Naming Conventions](#table-naming-conventions)
-   - [Bronze Rules](#bronze-rules)
-   - [Silver Rules](#silver-rules)
-   - [Gold Rules](#gold-rules)
-3. [Column Naming Conventions](#column-naming-conventions)
-   - [Surrogate Keys](#surrogate-keys)
-   - [Technical Columns](#technical-columns)
-4. [Stored Procedure](#stored-procedure-naming-conventions)
 ---
 
 ## **General Principles**
@@ -324,11 +344,11 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Bronze | Create Tables | ✅ Complete |
 | Bronze | Bulk insert all source files | ✅ Complete |
 | Silver | Create Tables | ✅ Complete |
-| Silver | Data Standardization | 🔄 In Progress |
+| Silver | Data Standardization | ✅ Complete |
 | Silver | Deduplication | 🔄 In Progress |
-| Gold | Dimensional Modeling | ⏳ Planned |
-| Gold | Create Fact Tables | ⏳ Planned |
-| Gold | Create Dimension Tables | ⏳ Planned |
+| Gold | Dimensional Modeling | ✅ Complete |
+| Gold | Create Fact Tables | ✅ Complete |
+| Gold | Create Dimension Tables | ✅ Complete |
 | Docs | Architecture Diagram | ✅ Complete |
 | Docs | Integration Diagram | ✅ Complete |
 | Docs | Data Catalog | ✅ Complete |
@@ -342,6 +362,3 @@ This project was built following the teachings and guidance of **Data With Baraa
 Original project concept and dataset: [[Link to original repo](https://github.com/DataWithBaraa/sql-data-warehouse-project)]
 
 ---
-## About Me
-
-Hi! I am **Xavier**, an aspiring data engineer. I have a background in Storage and Backup supporting over 400 Virtual Machines and Databases. 
