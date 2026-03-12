@@ -18,7 +18,9 @@
 12. [Project Structure](#project-structure)
 13. [Data Sources](#data-sources)
 14. [Data Catalog](#data-catalog)
-15. [Project Roadmap](#project-roadmap)
+15. [Future Enhancements](#future-enhancements)
+16. [Project Roadmap](#project-roadmap)
+17. [Credits and Acknowledgedments](#credits-and-acknowledgements)
 ---
 
 ## About Me
@@ -335,6 +337,21 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | subcat | NVARCHAR(50) | Product sub-category | US, Australia |
 | maintenance | NVARCHAR(10) | Customer country (raw, unstandardized) | US, Australia |
 
+---
+## Future Enhancements
+
+### Pipeline Automation
+- [ ] Add pipeline execution logging table
+- [ ] Build Python pipeline scripts for all three layers
+
+### Data Modeling
+- [ ] Add data quality automated test framework
+
+### Modern Tooling
+- [ ] Implement Apache Airflow for pipeline scheduling and orchestration
+
+### Visualization
+- [ ] Build Power BI dashboard on top of Gold layer
 ---
 ## Project Roadmap
 
