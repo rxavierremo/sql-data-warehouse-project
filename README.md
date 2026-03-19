@@ -227,36 +227,35 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
 | cst_id | INT | Unique customer identifier from CRM system | 11000 |
-| cst_key | NVARCHAR(50) | Customer key | NASAW00011000 |
-| cst_firstname | NVARCHAR(50) | Customer first name | Mary, Kent |
-| cst_lastname | NVARCHAR(50) | Customer last name | John, Johnson |
+| cst_key | NVARCHAR(50) | Customer's key | ASAW00011000 |
+| cst_firstname | NVARCHAR(50) | Customer's first name | Jon, Eugene |
+| cst_lastname | NVARCHAR(50) | Customer's last name | John, Johnson |
 | cst_marital_status | NVARCHAR(20) | Customer marital Status (raw, unstandardized) | S, M |
-| cst_gndr | NVARCHAR(10) | Customer gender (raw, unstandardized) | Male, M, Female, F |
-| cst_create_date | DATE | Customer creation date | 20200117 |
+| cst_gndr | NVARCHAR(10) | Customer gender (raw, unstandardized) | M, F |
+| cst_create_date | DATE | Customer creation date | 2025-10-06 |
 
 #### bronze.crm_prd_info
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
-| prd_id | INT | Unique product identifier from CRM system | 11000 |
-| prd_key | NVARCHAR(50) | Product key | NASAW00011000 |
-| prd_nm | NVARCHAR(50) | Product name | Mountain Bike |
-| prd_cost | INT | Product cost | 1 |
-| prd_line | NVARCHAR(50) | Product line | S, M |
-| prd_start_dt | DATE | Product start date | 20200101 |
-| prd_end_dt | DATE | Product end date | 20200101 |
+| prd_id | INT | Unique product identifier from CRM system | 210 |
+| prd_key | NVARCHAR(50) | Product key | CO-RF-FR-R92B-58 |
+| prd_nm | NVARCHAR(50) | Product name | Mountain Bike Socks- L |
+| prd_cost | INT | Product cost | 12 |
+| prd_line | NVARCHAR(50) | Product's line (raw, unstandardized) | S, M, R |
+| prd_start_dt | DATE | Product's production start date | 2020-01-01 |
+| prd_end_dt | DATE | Product's production end date | 2020-01-01 |
 
 #### bronze.crm_sales_details
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
-| sls_ord_num | NVARCHAR(50) | Unique sales order number from CRM system | 11000 |
-| sls_prd_key | NVARCHAR(50) | Sales product key | NASAW00011000 |
-| sls_cust_id | INT | Sales customer id | Mountain Bike |
-| sls_order_id | INT | Sales order id | 1 |
-| sls_ship_dt | INT | Sales shipping date  | S, M |
+| sls_ord_num | NVARCHAR(50) | Unique sales order number from CRM system | SO43698 |
+| sls_prd_key | NVARCHAR(50) | Sales product key | BK-M82S-44 |
+| sls_order_dt | INT | Sales order id | 20100101 |
+| sls_ship_dt | INT | Sales shipping date  | 20121229 |
 | sls_due_dt | INT | Sales due date | 20200101 |
-| sls_sales | INT | Sales information | 20200101 |
-| sls_quantity | INT | Sales quantity | 20200101 |
-| sls_price | INT | Sales price | 20200101 |
+| sls_sales | INT | Sales information | 3500 |
+| sls_quantity | INT | Sales quantity | 1 |
+| sls_price | INT | Sales price | 699 |
 
 #### bronze.erp_cust_az12
 | Column | Data Type | Description | Example |
@@ -274,10 +273,10 @@ All source files are in CSV format with comma delimiters and are stored in the d
 #### bronze.erp_px_cat_g1v2
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
-| id | INT | Unique product id from ERP system | AW-00011000 |
-| cat | NVARCHAR(50) | Product category | US, Australia |
-| subcat | NVARCHAR(50) | Product sub-category | US, Australia |
-| maintenance | NVARCHAR(10) | Customer country (raw, unstandardized) | US, Australia |
+| id | INT | Unique product id from ERP system |  AC_CL |
+| cat | NVARCHAR(50) | Product category | Accessories, Clothing |
+| subcat | NVARCHAR(50) | Product sub-category | Bottom Brackets, Brakes |
+| maintenance | NVARCHAR(10) | Product maintenance | Yes, No |
 
 ### Silver Layer
 
@@ -285,36 +284,40 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
 | cst_id | INT | Unique customer identifier from CRM system | 11000 |
-| cst_key | NVARCHAR(50) | Customer key | NASAW00011000 |
-| cst_firstname | NVARCHAR(50) | Customer first name | Mary, Kent |
-| cst_lastname | NVARCHAR(50) | Customer last name | John, Johnson |
-| cst_marital_status | NVARCHAR(20) | Customer marital Status (raw, unstandardized) | S, M |
-| cst_gndr | NVARCHAR(10) | Customer gender (raw, unstandardized) | Male, M, Female, F |
-| cst_create_date | DATE | Customer creation date | 20200117 |
+| cst_key | NVARCHAR(50) | Customer key | AW00011004 |
+| cst_firstname | NVARCHAR(50) | Customer's first name | Julio, Kent |
+| cst_lastname | NVARCHAR(50) | Customer's last name | Mehta, Johnson |
+| cst_marital_status | NVARCHAR(20) | Customer's marital Status | Single, Married |
+| cst_gndr | NVARCHAR(10) | Customer's gender | Male, Female |
+| cst_create_date | DATE | Customer's creation date | 2020-01-17 |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 #### silver.crm_prd_info
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
-| prd_id | INT | Unique product identifier from CRM system | 11000 |
-| prd_key | NVARCHAR(50) | Product key | NASAW00011000 |
-| prd_nm | NVARCHAR(50) | Product name | Mountain Bike |
-| prd_cost | INT | Product cost | 1 |
-| prd_line | NVARCHAR(50) | Product line | S, M |
-| prd_start_dt | DATE | Product start date | 20200101 |
-| prd_end_dt | DATE | Product end date | 20200101 |
+| prd_id | INT | Unique product identifier from CRM system | 486 |
+| cat_id | NVARCHAR(50) | Product's derived column for category id | AC_BR |
+| prd_key | NVARCHAR(50) | Product's key | RA-H123 |
+| prd_nm | NVARCHAR(50) | Product's name | All-Purpose Bike Stand |
+| prd_cost | INT | Product cost | 1, 59 |
+| prd_line | NVARCHAR(50) | Product line | Mountain, Road, Others |
+| prd_start_dt | DATE | Product's production start date | 2020-01-01 |
+| prd_end_dt | DATE | Product's production end date | 2020-01-01 |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 #### silver.crm_sales_details
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
-| sls_ord_num | NVARCHAR(50) | Unique sales order number from CRM system | 11000 |
-| sls_prd_key | NVARCHAR(50) | Sales product key | NASAW00011000 |
-| sls_cust_id | INT | Sales customer id | 11000 |
-| sls_order_id | INT | Sales order id | 1 |
-| sls_ship_dt | INT | Sales shipping date  | 20200101 |
-| sls_due_dt | INT | Sales due date | 20200101 |
-| sls_sales | INT | Sales information | 20200101 |
-| sls_quantity | INT | Sales quantity | 2 |
+| sls_ord_num | NVARCHAR(50) | Unique sales order number from CRM system | SO43700 |
+| sls_prd_key | NVARCHAR(50) | Sales product key | BK-M82S-44 |
+| sls_cust_id | INT | Sales customer id | 14501 |
+| sls_order_dt | DATE | Sales order date | 2010-12-30 |
+| sls_ship_dt | DATE | Sales shipping date  | 2020-01-01 |
+| sls_due_dt | DATE | Sales due date | 2020-01-01 |
+| sls_sales | INT | Sales information | 359, 1 |
+| sls_quantity | INT | Sales quantity | 2, 1 |
 | sls_price | INT | Sales price | 1 |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 #### silver.erp_cust_az12
 | Column | Data Type | Description | Example |
@@ -322,12 +325,14 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | cid | NVARCHAR(50) | Unique customer identifier from ERP system | NASAW00011000 |
 | bdate | DATE | Customer date of birth | 1971-10-06 |
 | gen | NVARCHAR(10) | Customer gender (raw, unstandardized) | Male, M, Female, F |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 #### silver.erp_loc_a101
 | Column | Data Type | Description | Example |
 |--------|-----------|-------------|---------|
 | cid | NVARCHAR(50) | Unique customer identifier from ERP system | AW-00011000 |
 | cntry | NVARCHAR(50) | Customer country (raw, unstandardized) | US, Australia |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 #### silver.erp_px_cat_g1v2
 | Column | Data Type | Description | Example |
@@ -336,6 +341,7 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | cat | NVARCHAR(50) | Product category | US, Australia |
 | subcat | NVARCHAR(50) | Product sub-category | US, Australia |
 | maintenance | NVARCHAR(10) | Customer country (raw, unstandardized) | US, Australia |
+| dwh_create_date | DATETIME2 | Metadata column for table's create date | 2020-03-17 21:05:45.9166667 |
 
 ---
 ## Future Enhancements
@@ -362,7 +368,7 @@ All source files are in CSV format with comma delimiters and are stored in the d
 | Bronze | Bulk insert all source files | ✅ Complete |
 | Silver | Create Tables | ✅ Complete |
 | Silver | Data Standardization | ✅ Complete |
-| Silver | Deduplication | 🔄 In Progress |
+| Silver | Deduplication | ✅ Complete |
 | Gold | Dimensional Modeling | ✅ Complete |
 | Gold | Create Fact Tables | ✅ Complete |
 | Gold | Create Dimension Tables | ✅ Complete |
